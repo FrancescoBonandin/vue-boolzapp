@@ -14,27 +14,64 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-
-
-/*-------DEBUG---------*/
-
-.debug{
-
-    background-color: aqua;
-    border: 3px dashed red;
+main{
+    height: 100vh;
+    width: 100%;
+    padding-top: 5%;
+    background: linear-gradient(0deg,#F3EEEA 0 80%,#009688 0 20%);
 }
 
-.debug header{
-    background-color: goldenrod;
-    border: 3px dotted green;
+.my-container{
+    max-width: 1200px;
+    height: 90%;
+    margin: 0 auto;
+    background-color: var(--standard-ui-grey);
 }
 
-.debug main{
-    background-color: crimson;
-    border: 3px solid blue;
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
 }
 
-.debug footer{
-    background-color: darkorange;
-    border: 3px dashed blueviolet;
+.sidebar{
+    width: 40%;
+    height:100%
 }
+.my-row{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.flex-dir-col{
+    flex-direction: column;
+}
+
+.notification-box{
+    background-color: var(--notification-lightblue);
+
+}
+
+.searchbox{
+    padding: 0.3rem;
+}
+
+.chatlist{
+    list-style-type: none;
+    overflow-y: auto;
+}
+
+.chatlist > li{
+    height: calc(100% / 9);
+}
+
+
+.chat{
+    width: 40%;
+    height:100%
+}
+
+
