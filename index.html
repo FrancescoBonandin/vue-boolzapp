@@ -30,6 +30,9 @@
 
         <!-- VUE -->
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+        <!-- Luxon -->
+        <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
         
         
     </head>
@@ -42,7 +45,7 @@
         <div id="app">
             
             <!-- main -->
-            <main>
+            <main @click="specificDataId=null">
                 
                 <div class="my-container">
 
@@ -161,8 +164,25 @@
                                             <img class="avatar" :src="singleChat.avatar" alt="">
                                         </div>
 
-                                        <div>
-                                            {{singleChat.name}}
+
+                                        <div class="chat-list-info">
+
+                                            <h3>
+                                                {{singleChat.name}}
+                                            </h3>
+    
+                                            <div class=" chat-last-message">
+                                                {{singleChat.messages[singleChat.messages.length-1].message}}
+                                            </div>
+    
+                                            <small class="date">
+                                                {{singleChat.messages[singleChat.messages.length-1].date.split(" ")[0]}}
+                                            </small>
+    
+                                            <small class="date">
+                                                {{singleChat.messages[singleChat.messages.length-1].date.split(" ")[1]}}
+                                            </small>
+
                                         </div>
 
                                     </li>
@@ -194,14 +214,33 @@
 
                             <div class="chat-log wrapper">
 
-                                <div  v-for="(singlemessage,index) in contacts[counter].messages" class="my-row"
-                                      :class=" { 'sent' : singlemessage.status == 'sent', 'received' : singlemessage.status =='received' } ">
+                                <div  v-for="(singleMessage,index) in contacts[counter].messages" class="my-row"
+                                    :class=" { 'sent' : singleMessage.status == 'sent', 'received' : singleMessage.status =='received' } ">
                                     
-                                      <div >
+                                    <div @click.right.stop.prevent="getDataId(index)" :my-dataid="index" >
               
-                                        <span>{{singlemessage.message}}</span>
+                                        <span>
+                                            {{singleMessage.message}}
+                                        </span>
 
-                                      </div>
+                                        <small class="date">
+                                            {{singleMessage.date.split(" ")[0]}}
+                                        </small>
+
+                                        <ul v-if="specificDataId==index" 
+                                            class="message-menu" >
+
+                                            <li >
+                                                info messaggio
+                                            </li>
+
+                                            <li  @click="deleteMessage(index)">
+                                                delete message
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
                                     
                                 </div>
 
@@ -238,7 +277,7 @@
 
     
         
-        
+      
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
         <script src="js/my-script.js"></script>
     </body>

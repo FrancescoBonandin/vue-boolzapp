@@ -1,8 +1,15 @@
 const {createApp}=Vue;
 
+const dateTime = luxon.DateTime;
+
+
+
 createApp({
     data(){
         return{
+
+          
+            specificDataId:null,
             filteredContacts:[],
             search:"",
             newMessage:"",
@@ -115,7 +122,7 @@ createApp({
                 },
                 {
                 name: 'Claudia',
-                avatar: './img/avatar_5.jpg',
+                avatar: './img/avatar_6.jpg',
                 visible: true,
                 messages: [
                 {
@@ -216,10 +223,30 @@ createApp({
                     
             });
 
+        },
+        deleteMessage(i){
+            this.contacts[this.counter].messages.splice(i,1)
+
+        },
+        getDataId(dataId){
+            this.specificDataId = dataId;
+           
+
         }
 
        
         
+    },
+    created(){
+        // const date = new Date();
+
+        // const year = date.getFullYear();
+        // const month = date.getMonth()+1;
+        // const day = date.getDay();
+
+        console.log (this.dateTime)
+
+
     }
 
 }).mount("#app")

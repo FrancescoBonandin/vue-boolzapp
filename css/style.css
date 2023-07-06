@@ -134,7 +134,17 @@ main{
     padding: 0;
     overflow-y: auto;
     align-self: stretch;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
+}
+
+.chat-list > .img-container{
+
+}
+
+.chat-list > li >.chat-list-info {
+
+    flex-grow: 1;
+
 }
 
 .chat-list > li:first-of-type{
@@ -148,6 +158,10 @@ main{
     border-right:solid 1px black;
     border-bottom:solid 1px black;
     
+}
+
+.chat-last-message{
+
 }
 
 
@@ -197,6 +211,42 @@ main{
     border-radius: 20px;
 }
 
+.chat-log .my-row div{
+    position: relative;
+
+}
+
+.date{
+    margin-top: 0.7rem;
+    display: block;
+    text-align: right;
+    font-size: 0.6rem;
+}
+
+.message-menu{
+    position: absolute;
+    left: 0;
+    top: calc(100% + 0.1rem);
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    background-color: var(--standard-ui-grey);
+
+
+}
+
+.message-menu > li:first-of-type{
+    border-bottom: 1px solid black;
+}
+
+.message-menu > li{
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    
+}
+
 .chat-input-container.my-row{
     justify-content: center;
 }
+
