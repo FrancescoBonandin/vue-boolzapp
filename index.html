@@ -194,19 +194,15 @@
                             </div>
 
                             <div class="chat-input-container my-row">
+                                
+                                <div>
+                                 <i class="fa-regular fa-face-smile"></i>
+                                </div>
 
-                                <div class="my-row">
-                             
-                                    <div>
-                                     <i class="fa-regular fa-face-smile"></i>
-                                    </div>
-    
-                                    <input style="width: 80%;" type="text" name="" id="">
-    
-                                    <div>
-                                        <i class="fa-solid fa-microphone"></i>
-                                    </div>
+                                <input @keyup.enter="sendNewMessage()" v-model="newMessage" style="width: 80%;" type="text" name="" id="">
 
+                                <div>
+                                    <i class="fa-solid fa-microphone"></i>
                                 </div>
 
                             </div>

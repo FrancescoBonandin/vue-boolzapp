@@ -3,7 +3,7 @@ const {createApp}=Vue;
 createApp({
     data(){
         return{
-
+            newMessage:"",
             counter:0,
             user:{
                 firstName:"Francesco",
@@ -176,7 +176,27 @@ createApp({
 
         }
     },
-    method:{
+    methods:{
+
+        sendNewMessage(){
+
+            this.contacts[this.counter].messages.push({
+                date:"",
+                message:this.newMessage,
+                status:"sent"
+
+            })
+
+            this.newMessage="";
+
+            setTimeout(() => { this.contacts[this.counter].messages.push({
+                date:"",
+                message:"Ok",
+                status:"received"})
+                
+            }, 1000);
+
+        },
 
        
         
