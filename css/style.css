@@ -159,24 +159,8 @@ main{
     overflow-y: auto;
 }
 
-.sent{
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-shrink: 1;
-    
-}
-
-.sent > div{
-    max-width: 40%;
-    padding:1rem 0.5rem;
-    background-color: var(--sent-message-color);
-
-    border: 1px solid black;
-    border-radius: 20px;
-}
-
 .received{
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: flex-start;
     flex-shrink: 1;
     
@@ -186,6 +170,22 @@ main{
     max-width: 40%;
     padding:1rem 0.5rem;
     background-color: var(--received-message-color);
+
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.sent{
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-shrink: 1;
+    
+}
+
+.sent > div{
+    max-width: 40%;
+    padding:1rem 0.5rem;
+    background-color: var(--sent-message-color);
 
     border: 1px solid black;
     border-radius: 20px;
