@@ -35,15 +35,65 @@ main{
     width: 100%;
 }
 
-.sidebar{
-    width: 40%;
-    height:100%
-}
 .my-row{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
 
+}
+
+
+.info-bar > .user-profile{
+    max-width: 40%;
+    border: 1px solid black;
+    flex-grow: 1;
+
+}
+
+.info-bar > .contact-profile{
+    max-width:60%;
+    border: 1px solid black;
+    flex-grow: 1;
+
+}
+
+.info-bar > .user-profile > .my-row, .info-bar > .contact-profile > .my-row{
+
+    justify-content: space-around;
+    align-items: center;
+}
+
+.img-container{
+    
+    width: 15%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: solid 1px black;
+    
+}
+
+.user-profile  .img-container{
+    width: calc(60% * 0.15);
+}
+
+.contact-profile  .img-container{
+    width: calc(40% * 0.15);
+}
+
+.avatar{
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+.profile.buttons *{
+    display: inline-block;
+    padding: 3px;
+}
+
+.sidebar{
+    width: 40%;
+    height:100%
 }
 
 .flex-dir-col{
@@ -52,26 +102,92 @@ main{
 
 .notification-box{
     background-color: var(--notification-lightblue);
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.notification-box > .img-container{
+    height: 70px;
+    width: 70px;
+    line-height: 70px;
+    font-size: 2rem;
+    background-color: white;
+    text-align: center;
+    color: var(--notification-lightblue);
 
 }
 
 .searchbox{
+    width: 100%;
     padding: 0.3rem;
 }
 
-.chatlist{
+.searchbox *{
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+}
+
+.chat-list{
     list-style-type: none;
+    padding: 0;
     overflow-y: auto;
 }
 
-.chatlist > li{
-    height: calc(100% / 9);
+.chat-list > li{
+    height: calc(100% / 8);
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: solid 1px black;
+    
 }
+
 
 
 .chat{
-    width: 40%;
+    width: 60%;
     height:100%
 }
 
+.chat-log{
 
+    background-image: url(../img/mine.jpg);
+    padding: 10%;
+    height:680px;
+    overflow-y: auto;
+}
+
+.sent{
+    padding-left: 1rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-shrink: 1;
+    
+}
+
+.sent > div{
+    max-width: 40%;
+    padding:1rem 0.5rem;
+    background-color: var(--sent-message-color);
+
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.received{
+    padding-right:1rem;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-shrink: 1;
+    
+}
+
+.received > div{
+    max-width: 40%;
+    padding:1rem 0.5rem;
+    background-color: var(--received-message-color);
+
+    border: 1px solid black;
+    border-radius: 20px;
+}

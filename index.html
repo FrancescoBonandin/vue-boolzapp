@@ -16,8 +16,8 @@
 
         <!-- Bootstrap -->
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" 
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"> -->
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
         
@@ -48,25 +48,122 @@
 
                     <div class="wrapper">
 
-                        <aside class="sidebar">
 
-                            <div class="my-row">
+                        <div class=" my-row info-bar">
+
+                            <div class=" user-profile">
+                                
+                                <div class="my-row">
+                                    
+                                    <div class="img-container">
+        
+                                        <img class="avatar" :src="user.avatar" alt="">
+        
+                                    </div>
+        
+                                    <div>
+                                        {{`${user.firstName} ${user.lastName}`}}
+                                    </div>
+        
+                                    <div class="profile buttons">
+
+                                        <div>
+                                            <i class="fa-solid fa-circle-notch"></i>
+                                        </div>
+
+                                        <div>
+                                            <i class="fa-solid fa-message"></i>
+                                        </div>
+
+                                        <div>
+                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                        </div>
+
+                                    </div>
+
+                                </div>
                             
                             </div>
+    
+                            <div class=" contact-profile">
+                                
+                                <div class="my-row">
+
+                                    <div class="img-container">
+        
+                                        <img class="avatar" :src="contacts[1].avatar" alt="">
+        
+                                    </div>
+        
+                                    <div>
+                                        {{contacts[1].name}}
+                                    </div>
+
+                             
+                                    <div class="profile buttons">
+
+                                        <div>
+
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                                        </div>
+
+                                        <div>
+                                            <i class="fa-solid fa-paperclip"></i>
+                                        </div>
+
+                                        <div>
+                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                        </div>
+
+                                    </div>
+                                    
+                                    
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <aside class="sidebar">
+
 
                             <div class=" wrapper flex-dir-col">
 
-                                <div class="notification-box">
+                                <div class="notification-box my-row">
 
+                                    <div class="img-container">
+                                        <i class="fa-solid fa-bell-slash" style="color: #5daddf;"></i>
+                                    </div>
+
+                                    <div>
+
+                                        <div>
+                                            Lorem ipsum dolor sit amet.
+                                        </div>
+
+                                        <a href="#nogo">
+                                            Lorem, ipsum dolor.
+                                        </a>
+
+                                    </div>
                                 </div>
 
                                 <div class="searchbox">
-                                    <input type="search" name="" id="">
+                                    <input type="search" placeholder="" name="" id="">
                                 </div>
 
                                 <ul class="chat-list">
 
-                                    <li>
+                                    <li v-for="(singleChat,index) in contacts" class="my-row" >
+
+                                        <div class="img-container">
+                                            <img class="avatar" :src="singleChat.avatar" alt="">
+                                        </div>
+
+                                        <div>
+                                            {{singleChat.name}}
+                                        </div>
 
                                     </li>
 
@@ -78,24 +175,34 @@
 
                         <div class="chat">
 
-                            <div class="my-row">
 
-                            </div>
+                            <div class="chat-log wrapper">
 
-                            <div class="chat-log">
+                                <div  v-for="(singlemessage,index) in contacts[1].messages" class="my-row"
+                                      :class=" { 'sent' : singlemessage.status == 'sent', 'received' : singlemessage.status =='received' } ">
+                                    
+                                      <div >
+              
+                                        <span>{{singlemessage.message}}</span>
 
-                            </div>
-
-                            <div class="chat-input-container">
-
-                                <div>
-                                    emoji button
+                                      </div>
+                                    
                                 </div>
 
-                                <input type="text" name="" id="">
+
+
+                            </div>
+
+                            <div class="chat-input-container my-row">
 
                                 <div>
-                                    mic-button
+                                 <i class="fa-regular fa-face-smile"></i>
+                                </div>
+
+                                <input style="width: 80%;" type="text" name="" id="">
+
+                                <div>
+                                    <i class="fa-solid fa-microphone"></i>
                                 </div>
 
                             </div>
