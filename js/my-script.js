@@ -4,6 +4,7 @@ createApp({
     data(){
         return{
 
+            counter:0,
             user:{
                 firstName:"Francesco",
                 lastName:"Bonandin",

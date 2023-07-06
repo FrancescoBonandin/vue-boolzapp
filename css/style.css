@@ -133,6 +133,7 @@ main{
     list-style-type: none;
     padding: 0;
     overflow-y: auto;
+    max-height: 100%;
 }
 
 .chat-list > li{
@@ -147,7 +148,7 @@ main{
 
 .chat{
     width: 60%;
-    height:100%
+    max-height:100%
 }
 
 .chat-log{
@@ -159,7 +160,6 @@ main{
 }
 
 .sent{
-    padding-left: 1rem;
     justify-content: flex-start;
     align-items: flex-start;
     flex-shrink: 1;
@@ -176,7 +176,6 @@ main{
 }
 
 .received{
-    padding-right:1rem;
     justify-content: flex-end;
     align-items: flex-start;
     flex-shrink: 1;
@@ -190,4 +189,8 @@ main{
 
     border: 1px solid black;
     border-radius: 20px;
+}
+
+.chat-input-container.my-row{
+    justify-content: center;
 }

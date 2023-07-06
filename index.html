@@ -155,7 +155,7 @@
 
                                 <ul class="chat-list">
 
-                                    <li v-for="(singleChat,index) in contacts" class="my-row" >
+                                    <li @click="()=>{counter=index}" v-for="(singleChat,index) in contacts" class="my-row" >
 
                                         <div class="img-container">
                                             <img class="avatar" :src="singleChat.avatar" alt="">
@@ -178,7 +178,7 @@
 
                             <div class="chat-log wrapper">
 
-                                <div  v-for="(singlemessage,index) in contacts[1].messages" class="my-row"
+                                <div  v-for="(singlemessage,index) in contacts[counter].messages" class="my-row"
                                       :class=" { 'sent' : singlemessage.status == 'sent', 'received' : singlemessage.status =='received' } ">
                                     
                                       <div >
@@ -195,14 +195,18 @@
 
                             <div class="chat-input-container my-row">
 
-                                <div>
-                                 <i class="fa-regular fa-face-smile"></i>
-                                </div>
+                                <div class="my-row">
+                             
+                                    <div>
+                                     <i class="fa-regular fa-face-smile"></i>
+                                    </div>
+    
+                                    <input style="width: 80%;" type="text" name="" id="">
+    
+                                    <div>
+                                        <i class="fa-solid fa-microphone"></i>
+                                    </div>
 
-                                <input style="width: 80%;" type="text" name="" id="">
-
-                                <div>
-                                    <i class="fa-solid fa-microphone"></i>
                                 </div>
 
                             </div>
