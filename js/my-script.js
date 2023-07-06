@@ -3,6 +3,8 @@ const {createApp}=Vue;
 createApp({
     data(){
         return{
+            filteredContacts:[],
+            search:"",
             newMessage:"",
             counter:0,
             user:{
@@ -197,6 +199,24 @@ createApp({
             }, 1000);
 
         },
+
+    
+
+        searchInContacts(){
+
+            this.filteredContacts=this.contacts.filter(singleContact =>{
+              
+                if( singleContact.name.toUpperCase().includes(this.search.toUpperCase())){
+                return true
+                }
+
+                else{
+                return false
+                }
+                    
+            });
+
+        }
 
        
         

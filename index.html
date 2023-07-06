@@ -150,12 +150,28 @@
                                 </div>
 
                                 <div class="searchbox">
-                                    <input type="search" placeholder="" name="" id="">
+                                    <input @keyup="searchInContacts()" v-model="search" type="search" placeholder="" name="" id="">
                                 </div>
 
-                                <ul class="chat-list">
+                                <ul v-if="search==''" class="chat-list">
 
                                     <li @click="()=>{counter=index}" v-for="(singleChat,index) in contacts" class="my-row" >
+
+                                        <div class="img-container">
+                                            <img class="avatar" :src="singleChat.avatar" alt="">
+                                        </div>
+
+                                        <div>
+                                            {{singleChat.name}}
+                                        </div>
+
+                                    </li>
+
+                                </ul>
+
+                                <ul v-else class="chat-list filtered">
+
+                                    <li @click="()=>{counter=index}" v-for="(singleChat,index) in filteredContacts" class="my-row" >
 
                                         <div class="img-container">
                                             <img class="avatar" :src="singleChat.avatar" alt="">
