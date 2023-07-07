@@ -18,14 +18,17 @@ main{
     height: 100vh;
     width: 100%;
     padding-top: 5%;
-    background: linear-gradient(0deg, var(--active-ui-grey) 0 80vh,#009688 0 20vh);
+    background: linear-gradient(0deg, var(--backgrounds-grey) 0 80vh,var(--backgrounds-green) 0 20vh);
+}
+
+i{
+    color: var(--button-font-color);
 }
 
 .my-container{
     max-width: 1200px;
     height: 90%;
     margin: 0 auto;
-    
 }
 
 .wrapper{
@@ -39,43 +42,36 @@ main{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-
 }
 
 .info-bar{
     background-color: var(--standard-ui-grey);
-
 }
 
 .info-bar > .user-profile{
+    padding: 0 5px;
     max-width: 40%;
-    border: 1px solid rgba(40, 40, 40, 0.5);
-
     flex-grow: 1;
-
 }
 
 .info-bar > .contact-profile{
+    padding: 0 5px;
     max-width:60%;
-    border: 1px solid rgba(40, 40, 40, 0.5);
-    border-left: 0px;
+    border-left: 1px solid rgba(255, 255, 255, 0.8);
     flex-grow: 1;
-
 }
 
 .info-bar > .user-profile > .my-row, .info-bar > .contact-profile > .my-row{
 
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
 .img-container{
-    
     width: 15%;
     border-radius: 50%;
     overflow: hidden;
-    border: solid 1px rgba(40, 40, 40, 0.5);
-    
+    border: solid 1px rgba(0, 150, 136, 0.5);
 }
 
 .user-profile  .img-container{
@@ -127,7 +123,6 @@ main{
     background-color: white;
     text-align: center;
     color: var(--notification-lightblue);
-
 }
 
 .searchbox{
@@ -136,7 +131,7 @@ main{
     padding: 0.3rem;
 }
 
-.searchbox *{
+.searchbox input{
     width: 90%;
     display: block;
     margin: 0 auto;
@@ -157,80 +152,40 @@ main{
 .chat-list > li{
     flex-shrink: 0;
     flex-grow: 1;
-
-}
-
-
-
-.chat-list > li:first-of-type{
-
-    border: solid 1px rgba(40, 40, 40, 0.5);
-    
-}
-
-.chat-list > li:nth-of-type(n + 1){
-    border-left:solid 1px rgba(40, 40, 40, 0.5);
-    border-right:solid 1px rgba(40, 40, 40, 0.5);
-    border-bottom:solid 1px rgba(40, 40, 40, 0.5);
-    
+    border-bottom: solid 1px rgba(255, 255, 255, 0.5);
 }
 
 .chat-list  .img-container{
-
     align-self: center;
-
 }
 
 .chat-list > li >.chat-info {
-
     flex-grow: 1;
-    
-    
 }
 
 .single-chat.active{
-    position: relative;
-
-}
-
-.single-chat.active{
-  
-    background-color: var(--active-ui-grey);
+    background-color: var(--usi-white);
 }
 
 .chat-last-message{
-    border-top: 1px solid rgba(40, 40, 40, 0.5);
     padding: 0.4rem;
-
+    color: var(--info-text-color);
 }
-
-.chat-last-message .date{
-
-    margin-top: 0;
-
-}
-
-
 
 .chat{
     width: 60%;
     max-height:100%;
     overflow-y: hidden;
-    padding-right: 1px ;
 }
 
 .chat-log{
     min-height: 100px;
     height:calc(100% - 80px);
-
+    width: 100%;
+    padding: 10%;
     display: flex;
     flex-direction: column;
-   
-    width: 100%;
-
-
     background-image: url(../img/mine.jpg);
-    padding: 10%;
     overflow-y: auto;
 }
 
@@ -240,17 +195,8 @@ main{
     padding-bottom: 1rem;
     flex-shrink: 0;
     flex-grow: 1;
-    
 }
 
-.received > div{
-    max-width: 40%;
-    padding:1rem 0.5rem;
-    background-color: var(--received-message-color);
-
-    border: 1px solid rgba(40, 40, 40, 0.5);
-    border-radius: 20px;
-}
 
 .sent{
     justify-content: flex-end;
@@ -258,28 +204,30 @@ main{
     padding-bottom: 1rem;
     flex-shrink: 0;
     flex-grow: 1;
-    
+}
+
+.received > div, .sent > div{
+    min-width: 10%;
+    max-width: 40%;
+    padding:1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    position: relative;
+}
+
+.received > div{
+    background-color: var(--received-message-color);
 }
 
 .sent > div{
-    max-width: 40%;
-    padding:1rem 0.5rem;
     background-color: var(--sent-message-color);
-
-    border: 1px solid rgba(40, 40, 40, 0.5);
-    border-radius: 20px;
-}
-
-.chat-log .my-row div{
-    position: relative;
-
 }
 
 .date{
-    margin-top: 0.7rem;
     display: block;
     text-align: right;
     font-size: 0.6rem;
+    color: var(--info-text-color);
 }
 
 .message-menu{
@@ -291,19 +239,16 @@ main{
     text-align: center;
     background-color: var(--standard-ui-grey);
     border-radius: 0.5rem;
-
-
 }
 
 .message-menu > li:first-of-type{
-    border-bottom: 1px solid rgba(40, 40, 40, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .message-menu > li{
     width: 150px;
     height: 40px;
     line-height: 40px;
-    
 }
 
 .chat-input-container.my-row{
@@ -320,6 +265,5 @@ main{
 .chat-input-container.my-row input{
     flex-grow: 1;
     flex-shrink: 0;
-    
 }
 

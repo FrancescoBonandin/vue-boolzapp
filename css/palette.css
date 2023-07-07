@@ -1,7 +1,12 @@
 body{
-    --received-message-color:#DBD3CD;
+    --backgrounds-grey:#DBDBD2;
+    --backgrounds-green:#009688;
+    --received-message-color:#FFFFFF;
     --sent-message-color:#D5F9BA;
     --notification-lightblue:#8EDAFC;
-    --active-ui-grey:#c7b99e;
+    --active-ui-grey:#E9EBEB;
     --standard-ui-grey:#F3EEEA;
+    --uis-white:#EAEAEA;
+    --button-font-color:#B1B1B1;
+    --info-text-color:#AA9AA3;
 }

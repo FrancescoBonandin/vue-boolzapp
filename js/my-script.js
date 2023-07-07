@@ -1,6 +1,6 @@
 const {createApp}=Vue;
 
-const dateTime = luxon.DateTime;
+
 
 
 
@@ -17,7 +17,7 @@ createApp({
             user:{
                 firstName:"Francesco",
                 lastName:"Bonandin",
-                avatar:'./img/avatar_io.jpg',
+                avatar:'./img/avatar_2.jpg',
             },
             contacts: [
                 {
@@ -190,20 +190,35 @@ createApp({
         getMyDate(){
              
             let today = new Date();
-            let date =  today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
-
-            let seconds = (today.getSeconds()<=9)? "0"+today.getSeconds().toString():today.getSeconds().toString();
+            let date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
+            let seconds = (today.getSeconds()<=9)? "0"+today.getSeconds().toString() : today.getSeconds().toString();
             console.log(seconds);
-            let minutes = (today.getMinutes()<=9)? "0"+today.getMinutes().toString():today.getMinutes().toString;
+            let minutes = (today.getMinutes()<=9)? "0"+today.getMinutes().toString() : today.getMinutes().toString();
             console.log(minutes);
-            let hours = (today.getHours()<=9)? "0"+today.getHours().toString():today.getHours().toString();
+            let hours = (today.getHours()<=9)? "0"+today.getHours().toString() : today.getHours().toString();
             console.log(hours);
             let time = `${hours}:${minutes}:${seconds}`;
             console.log(time);
             let dateTime = date+' '+time;
             return dateTime ;
         },
-       
+
+        //async getResponse(){
+
+            
+        //        await axios.get("https://flynn.boolean.careers/exercises/api/random/sentence")
+        //         .then( (res) => {
+
+        //             const result = res.data.response;
+        //             // console.log(res,result)
+                    
+        //             return result;
+        //         })
+      
+
+     
+        // },
+        
 
         sendNewMessage(){
 
@@ -211,21 +226,19 @@ createApp({
                 date:this.getMyDate(),
                 message:this.newMessage,
                 status:"sent"
-
+            
             })
 
             this.newMessage="";
-
+            
             setTimeout(() => { this.contacts[this.counter].messages.push({
                 date:this.getMyDate(),
-                message:"Ok",
+                message:"OK", //this.getResponse(),
                 status:"received"})
                 
-            }, 1000);
-
+                
+            }, 900)
         },
-
-    
 
         searchInContacts(){
 
@@ -242,29 +255,20 @@ createApp({
             });
 
         },
+
         deleteMessage(i){
+
             this.contacts[this.counter].messages.splice(i,1)
 
         },
+        
         getDataId(dataId){
             this.specificDataId = dataId;
-           
-
+        
         }
 
        
         
-    },
-    created(){
-        // const date = new Date();
-
-        // const year = date.getFullYear();
-        // const month = date.getMonth()+1;
-        // const day = date.getDay();
-
-        // console.log (this.dateTime)
-
-
     }
 
 }).mount("#app")
