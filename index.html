@@ -94,12 +94,12 @@
 
                                     <div class="img-container">
         
-                                        <img class="avatar" :src="contacts[1].avatar" alt="">
+                                        <img class="avatar" :src="contacts[counter].avatar" :alt="contacts[counter].name">
         
                                     </div>
         
                                     <div>
-                                        {{contacts[1].name}}
+                                        {{contacts[counter].name}}
                                     </div>
 
                              
@@ -131,7 +131,7 @@
                         <aside class="sidebar">
 
 
-                            <div class=" wrapper flex-dir-col">
+                            <div class=" wrapper  flex-dir-col">
 
                                 <div class="notification-box my-row">
 
@@ -153,35 +153,41 @@
                                 </div>
 
                                 <div class="searchbox">
-                                    <input @keyup="searchInContacts()" v-model="search" type="search" placeholder="" name="" id="">
+                                    <input @keyup="searchInContacts()" v-model="search" type="search" placeholder="Write here to  search a contact..." name="" id="">
                                 </div>
 
-                                <ul v-if="search==''" class="chat-list">
+                                <ul v-if="search==''" class="chat-list flex-dir-col">
 
-                                    <li @click="()=>{counter=index}" v-for="(singleChat,index) in contacts" class="my-row" >
+                                    <li @click="()=>{counter=index}" v-for="(singleChat,index) in contacts" class=" single-chat my-row" :class="(counter == index)? 'active':'' ">
 
                                         <div class="img-container">
-                                            <img class="avatar" :src="singleChat.avatar" alt="">
+                                            <img class="avatar" :src="singleChat.avatar" :alt="singleChat.name">
                                         </div>
 
 
-                                        <div class="chat-list-info">
+                                        <div class="chat-info">
 
                                             <h3>
                                                 {{singleChat.name}}
                                             </h3>
     
                                             <div class=" chat-last-message">
-                                                {{singleChat.messages[singleChat.messages.length-1].message}}
+                                                
+                                                <span>
+
+                                                    {{singleChat.messages[singleChat.messages.length-1].message}}
+
+                                                </span>
+                                                
+                                                <small class="date">
+                                                    {{singleChat.messages[singleChat.messages.length-1].date.split(" ")[0]}}
+                                                </small>
+        
+                                                <small class="date">
+                                                    {{singleChat.messages[singleChat.messages.length-1].date.split(" ")[1]}}
+                                                </small>
+
                                             </div>
-    
-                                            <small class="date">
-                                                {{singleChat.messages[singleChat.messages.length-1].date.split(" ")[0]}}
-                                            </small>
-    
-                                            <small class="date">
-                                                {{singleChat.messages[singleChat.messages.length-1].date.split(" ")[1]}}
-                                            </small>
 
                                         </div>
 
@@ -212,7 +218,7 @@
                         <div class="chat">
 
 
-                            <div class="chat-log wrapper">
+                            <div class="chat-log ">
 
                                 <div  v-for="(singleMessage,index) in contacts[counter].messages" class="my-row"
                                     :class=" { 'sent' : singleMessage.status == 'sent', 'received' : singleMessage.status =='received' } ">
@@ -225,6 +231,10 @@
 
                                         <small class="date">
                                             {{singleMessage.date.split(" ")[0]}}
+                                        </small>
+
+                                        <small class="date">
+                                            {{singleMessage.date.split(" ")[1]}}
                                         </small>
 
                                         <ul v-if="specificDataId==index" 
@@ -254,7 +264,7 @@
                                  <i class="fa-regular fa-face-smile"></i>
                                 </div>
 
-                                <input @keyup.enter="sendNewMessage()" v-model="newMessage" style="width: 80%;" type="text" name="" id="">
+                                <input @keyup.enter="sendNewMessage()" v-model="newMessage" placeholder="New message..." style="width: 80%;" type="text" name="" id="">
 
                                 <div>
                                     <i class="fa-solid fa-microphone"></i>

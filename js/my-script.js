@@ -187,10 +187,28 @@ createApp({
     },
     methods:{
 
+        getMyDate(){
+             
+            let today = new Date();
+            let date =  today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
+
+            let seconds = (today.getSeconds()<=9)? "0"+today.getSeconds().toString():today.getSeconds().toString();
+            console.log(seconds);
+            let minutes = (today.getMinutes()<=9)? "0"+today.getMinutes().toString():today.getMinutes().toString;
+            console.log(minutes);
+            let hours = (today.getHours()<=9)? "0"+today.getHours().toString():today.getHours().toString();
+            console.log(hours);
+            let time = `${hours}:${minutes}:${seconds}`;
+            console.log(time);
+            let dateTime = date+' '+time;
+            return dateTime ;
+        },
+       
+
         sendNewMessage(){
 
             this.contacts[this.counter].messages.push({
-                date:"",
+                date:this.getMyDate(),
                 message:this.newMessage,
                 status:"sent"
 
@@ -199,7 +217,7 @@ createApp({
             this.newMessage="";
 
             setTimeout(() => { this.contacts[this.counter].messages.push({
-                date:"",
+                date:this.getMyDate(),
                 message:"Ok",
                 status:"received"})
                 
@@ -244,7 +262,7 @@ createApp({
         // const month = date.getMonth()+1;
         // const day = date.getDay();
 
-        console.log (this.dateTime)
+        // console.log (this.dateTime)
 
 
     }
