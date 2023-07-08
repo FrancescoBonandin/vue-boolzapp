@@ -57,17 +57,19 @@
                                 
                                 <div class="my-row">
                                     
-                                    <div class="img-container">
+                                    <div class="profile-info ">
+                                        <div class="img-container">
         
-                                        <img class="avatar" :src="user.avatar" alt="">
-        
+                                            <img class="avatar" :src="user.avatar" alt="">
+            
+                                        </div>
+            
+                                        <h3>
+                                            {{`${user.firstName} ${user.lastName}`}}
+                                        </h3>
                                     </div>
         
-                                    <h3>
-                                        {{`${user.firstName} ${user.lastName}`}}
-                                    </h3>
-        
-                                    <div class="profile buttons">
+                                    <div class="profile-buttons">
 
                                         <div>
                                             <i class="fa-solid fa-circle-notch"></i>
@@ -90,19 +92,22 @@
                             <div class=" contact-profile">
                                 
                                 <div class="my-row">
-                                    
-                                    <div class="img-container">
-        
-                                        <img class="avatar" :src="contacts[counter].avatar" :alt="contacts[counter].name">
-        
+                                    <div class="profile-info">
+
+                                        <div class="img-container">
+            
+                                            <img class="avatar" :src="contacts[counter].avatar" :alt="contacts[counter].name">
+            
+                                        </div>
+            
+                                        <h3>
+                                            {{contacts[counter].name}}
+                                        </h3>
+                                        
                                     </div>
-        
-                                    <h3>
-                                        {{contacts[counter].name}}
-                                    </h3>
 
                              
-                                    <div class="profile buttons">
+                                    <div class="profile-buttons">
 
                                         <div>
 
@@ -152,7 +157,7 @@
                                 </div>
 
                                 <div class="searchbox">
-                                    <input @keyup="searchInContacts()" v-model="search" type="search" placeholder="Write here to  search a contact..." name="" id="">
+                                    <input @keyup="searchInContacts()" v-model="search" type="search" placeholder="Write here to search for a contact..." name="search" id="search-filter">
                                 </div>
 
                                 <!-- <ul v-if="search==''" class="chat-list flex-dir-col"> -->
@@ -175,18 +180,18 @@
     
                                             <div class=" chat-last-message">
                                                 
-                                                <span>
+                                                <div>
 
                                                     {{singleChat.messages[singleChat.messages.length-1].message}}
 
-                                                </span>
+                                                </div>
                                                 
                                                 <small class="date">
                                                     {{singleChat.messages[singleChat.messages.length-1].date.split(" ")[0]}}
                                                 </small>
         
                                                 <small class="date">
-                                                    {{singleChat.messages[singleChat.messages.length-1].date.split(" ")[1]}}
+                                                    {{singleChat.messages[singleChat.messages.length-1].date.split(" ")[1].split(":")[0]}}:{{singleChat.messages[singleChat.messages.length-1].date.split(" ")[1].split(":")[1]}}
                                                 </small>
 
                                             </div>
@@ -259,7 +264,7 @@
                                         </small>
 
                                         <small class="date">
-                                            {{singleMessage.date.split(" ")[1]}}
+                                            {{singleMessage.date.split(" ")[1].split(":")[0]}}:{{singleMessage.date.split(" ")[1].split(":")[1]}}
                                         </small>
 
                                         <ul v-if="specificDataId==index" 

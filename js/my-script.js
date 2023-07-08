@@ -191,14 +191,15 @@ createApp({
              
             let today = new Date();
             let date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear();
-            let seconds = (today.getSeconds()<=9)? "0"+today.getSeconds().toString() : today.getSeconds().toString();
-            console.log(seconds);
+            // let seconds = (today.getSeconds()<=9)? "0"+today.getSeconds().toString() : today.getSeconds().toString();
+            // console.log(seconds);
             let minutes = (today.getMinutes()<=9)? "0"+today.getMinutes().toString() : today.getMinutes().toString();
-            console.log(minutes);
+            // console.log(minutes);
             let hours = (today.getHours()<=9)? "0"+today.getHours().toString() : today.getHours().toString();
-            console.log(hours);
-            let time = `${hours}:${minutes}:${seconds}`;
-            console.log(time);
+            // console.log(hours);
+            let time = `${hours}:${minutes}` 
+            // `:${seconds}`;
+            // console.log(time);
             let dateTime = date+' '+time;
             return dateTime ;
         },
