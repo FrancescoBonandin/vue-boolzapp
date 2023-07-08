@@ -104,6 +104,14 @@
                                             {{contacts[counter].name}}
                                         </h3>
                                         
+                                        <div>
+                                     
+                                            <small class="date">
+                                                Ultimo accesso oggi alle : {{contacts[counter].messages[contacts[counter].messages.length-1].date.split(" ")[1].split(":")[0]}}:{{contacts[counter].messages[contacts[counter].messages.length-1].date.split(" ")[1].split(":")[1]}}
+                                            </small>
+
+                                        </div>
+                                        
                                     </div>
 
                              
