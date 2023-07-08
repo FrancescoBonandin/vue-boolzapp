@@ -155,9 +155,12 @@
                                     <input @keyup="searchInContacts()" v-model="search" type="search" placeholder="Write here to  search a contact..." name="" id="">
                                 </div>
 
-                                <ul v-if="search==''" class="chat-list flex-dir-col">
+                                <!-- <ul v-if="search==''" class="chat-list flex-dir-col"> -->
 
-                                    <li @click="()=>{counter=index}" v-for="(singleChat,index) in contacts" class=" single-chat my-row" :class="(counter == index)? 'active':'' ">
+                                <ul  class="chat-list flex-dir-col">
+
+                                    <li @click="()=>{counter=index}" v-for="(singleChat,index) in (search=='')? contacts:filteredContacts" class=" single-chat my-row" :class="(counter == index)? 'active':'' ">
+                                    <!-- <li @click="()=>{counter=index}" v-for="(singleChat,index) in contacts" class=" single-chat my-row" :class="(counter == index)? 'active':'' "> -->
 
                                         <div class="img-container">
                                             <img class="avatar" :src="singleChat.avatar" :alt="singleChat.name">
@@ -194,8 +197,9 @@
 
                                 </ul>
 
-                                <ul v-else class="chat-list flex-dir-col filtered">
+                                <!-- <ul v-else class="chat-list flex-dir-col filtered">
 
+                                   
                                     <li @click="()=>{counter=index}" v-for="(singleChat,index) in filteredContacts" class="my-row" >
 
                                         <div class="img-container">
@@ -228,7 +232,7 @@
 
                                         </div>
 
-                                    </li>
+                                    </li> -->
 
                                 </ul>
 
@@ -304,6 +308,10 @@
             </main>
             <!-- fine main -->
             
+        </div>
+
+    
+
         </div>
 
     
