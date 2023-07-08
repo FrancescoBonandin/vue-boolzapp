@@ -38,6 +38,12 @@ i{
     width: 100%;
 }
 
+.my-container > .wrapper{
+    background-color: var(--active-ui-grey);
+    border: 1px solid var(--active-ui-grey);
+    box-shadow: 0px 0px 15px 15px rgba(0,0,0,0.2);
+}
+
 .my-row{
     width: 100%;
     display: flex;
@@ -51,13 +57,13 @@ i{
 .info-bar > .user-profile{
     padding: 0 5px;
     max-width: 40%;
+    border-right: 1px solid rgba(255, 255, 255, 0.8);
     flex-grow: 1;
 }
 
 .info-bar > .contact-profile{
     padding: 0 5px;
     max-width:60%;
-    border-left: 1px solid rgba(255, 255, 255, 0.8);
     flex-grow: 1;
 }
 
@@ -107,9 +113,14 @@ i{
 
 .sidebar{
     width: 40%;
-    height:100%;
+    height:calc(100% - 60px);
     background-color: var(--standard-ui-grey);
     overflow-y: hidden;
+    border-right: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.sidebar > .wrapper{
+flex-wrap: nowrap;
 }
 
 .flex-dir-col{
@@ -123,21 +134,34 @@ i{
 .notification-box{
     background-color: var(--notification-lightblue);
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    padding: 0 5px;
 
 }
 
 .notification-box > .img-container{
-    height: 70px;
-    width: 70px;
+    min-height: 70px;
+    min-width: 70px;
     line-height: 70px;
-    font-size: 2rem;
+    font-size: 3rem;
     background-color: white;
     text-align: center;
     color: var(--notification-lightblue);
+    border: 0;
+}
+
+.notification-box div{
+    color: lightcoral;
+}
+
+.notification-box a,.notification-box a:visited{
+    color: lightslategray;
+    font-size: small;
+    font-weight: lighter;
 }
 
 .searchbox{
+    
     width: 100%;
     height: 30px;
     padding: 0.3rem;
@@ -185,6 +209,7 @@ i{
 }
 
 .chat-last-message{
+    width: fit-content;
     padding: 0.4rem;
     padding-bottom: 0;
     color: var(--info-text-color);
@@ -215,6 +240,7 @@ i{
     flex-direction: column;
     background-image: url(../img/mine.jpg);
     overflow-y: auto;
+    box-shadow: inset 0px 0px 40px -25px rgb(0,0,0);
 }
 
 .received{
@@ -250,8 +276,9 @@ i{
 }
 
 .date{
+    width: fit-content;
     display: block;
-    text-align: right;
+    margin-left: auto;
     font-size: 0.6rem;
     color: var(--info-text-color);
 }
