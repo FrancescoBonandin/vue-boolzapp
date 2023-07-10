@@ -91,24 +91,26 @@
     
                             <div  class=" contact-profile">
                             
-                                <div v-if="(search=='')" class="my-row">
+                                <div
+                                
+                                 class="my-row">
                                     <div class="profile-info">
 
                                         <div class="img-container">
             
-                                            <img class="avatar" :src="contacts[counter].avatar" :alt="contacts[counter].name">
+                                            <img class="avatar" :src="contacts[activeCounter].avatar" :alt="contacts[activeCounter].name">
             
                                         </div>
 
                                         <div>
             
                                             <h3>
-                                                {{contacts[counter].name}}
+                                                {{contacts[activeCounter].name}}
                                             </h3>
                                         
                                      
                                             <small class="date">
-                                                Ultimo accesso oggi alle : {{contacts[counter].messages[contacts[counter].messages.length-1].date.split(" ")[1].split(":")[0]}}:{{contacts[counter].messages[contacts[counter].messages.length-1].date.split(" ")[1].split(":")[1]}}
+                                                Ultimo accesso oggi alle : {{contacts[activeCounter].messages[contacts[activeCounter].messages.length-1].date.split(" ")[1].split(":")[0]}}:{{contacts[activeCounter].messages[contacts[activeCounter].messages.length-1].date.split(" ")[1].split(":")[1]}}
                                             </small>
 
                                         </div>
@@ -137,7 +139,7 @@
                                     
                                 </div>
 
-                                <div v-else class="my-row">
+                                <!-- <div v-else class="my-row">
                                     <div class="profile-info">
 
                                         <div class="img-container">
@@ -181,7 +183,7 @@
                                     </div>
                                     
                                     
-                                </div>
+                                </div> -->
 
                             </div>
 
@@ -219,6 +221,7 @@
 
                                 <ul  class="chat-list flex-dir-col">
 
+                                    
                                     <li @click="()=>{counter=index}" v-for="(singleChat,index) in (search=='')? contacts:filteredContacts" class=" single-chat my-row" :class="(counter == index)? 'active':'' ">
                                     <!-- <li @click="()=>{counter=index}" v-for="(singleChat,index) in contacts" class=" single-chat my-row" :class="(counter == index)? 'active':'' "> -->
 
@@ -305,7 +308,7 @@
 
                             <div class="chat-log ">
 
-                                <div  v-for="(singleMessage,index) in (search=='')? contacts[counter].messages:filteredContacts[counter].messages" class="my-row"
+                                <div  v-for="(singleMessage,index) in (search=='')? contacts[activeCounter].messages:filteredContacts[activeCounter].messages" class="my-row"
                                     :class=" { 'sent' : singleMessage.status == 'sent', 'received' : singleMessage.status =='received' } ">
                                     
                                     <div @click.right.stop.prevent="getDataId(index)" :my-dataid="index" >

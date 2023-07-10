@@ -255,6 +255,11 @@ createApp({
                 }
                     
             });
+
+            // if (this.filteredContacts.length == 0){
+            //     mostro un messaggio che la ricerca non ha prodotto risultati
+            // }
+
             this.counter = 0;
         },
 
@@ -274,3 +279,14 @@ createApp({
     }
 
 }).mount("#app")
+
+// activateChat(index){
+//     se la ricerca è vuota cerco in Array;
+//     contatore gli assegno il valore di index e poi a contatore attivo assegno il valore di contatore;
+
+//     oppure se ricerca non è vuota e se arrayfiltrato è piu lungo di 0 cerco in arrayfiltrato;
+//     prendo l elemento arrayfiltrato[index] e controllo in che posizione è
+//      dentro array prendo il suo indice e lo assegno a contatore attivo;
+
+//     se array filtrato è vuoto non faccio niente 
+// }
