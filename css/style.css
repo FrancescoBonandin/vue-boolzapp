@@ -232,7 +232,7 @@ flex-wrap: nowrap;
 
 .chat{
     width: 60%;
-    max-height:100%;
+    max-height:calc(100% - 60px);
     overflow-y: hidden;
 }
 
