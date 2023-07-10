@@ -99,6 +99,11 @@ i{
     margin-left: 5px;
 }
 
+.profile-info .date{
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
 .profile-buttons{
     display: flex;
     align-items: center;
@@ -197,19 +202,19 @@ flex-wrap: nowrap;
 
 .chat-list > li >.chat-info {
     flex-grow: 1;
+    padding-top: 5px;
+    padding-left: 5px;
+    width: (100% - 70px);
+
 }
 
 .single-chat.active{
     background-color: var(--active-ui-grey);
 }
 
-.chat-info{
-    padding-top: 5px;
-    padding-left: 5px;
-}
 
 .chat-last-message{
-    width: fit-content;
+    max-width: 100%;
     padding: 0.4rem;
     padding-bottom: 0;
     color: var(--info-text-color);

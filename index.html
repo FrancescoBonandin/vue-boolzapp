@@ -89,9 +89,9 @@
                             
                             </div>
     
-                            <div class=" contact-profile">
-                                
-                                <div class="my-row">
+                            <div  class=" contact-profile">
+                            
+                                <div v-if="(search=='')" class="my-row">
                                     <div class="profile-info">
 
                                         <div class="img-container">
@@ -99,15 +99,62 @@
                                             <img class="avatar" :src="contacts[counter].avatar" :alt="contacts[counter].name">
             
                                         </div>
-            
-                                        <h3>
-                                            {{contacts[counter].name}}
-                                        </h3>
-                                        
+
                                         <div>
+            
+                                            <h3>
+                                                {{contacts[counter].name}}
+                                            </h3>
+                                        
                                      
                                             <small class="date">
                                                 Ultimo accesso oggi alle : {{contacts[counter].messages[contacts[counter].messages.length-1].date.split(" ")[1].split(":")[0]}}:{{contacts[counter].messages[contacts[counter].messages.length-1].date.split(" ")[1].split(":")[1]}}
+                                            </small>
+
+                                        </div>
+                                        
+                                    </div>
+
+                             
+                                    <div class="profile-buttons">
+
+                                        <div>
+
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                                        </div>
+
+                                        <div>
+                                            <i class="fa-solid fa-paperclip"></i>
+                                        </div>
+
+                                        <div>
+                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                        </div>
+
+                                    </div>
+                                    
+                                    
+                                </div>
+
+                                <div v-else class="my-row">
+                                    <div class="profile-info">
+
+                                        <div class="img-container">
+            
+                                            <img class="avatar" :src="filteredContacts[counter].avatar" :alt="filteredContacts[counter].name">
+            
+                                        </div>
+
+                                        <div>
+            
+                                            <h3>
+                                                {{filteredContacts[counter].name}}
+                                            </h3>
+                                        
+                                     
+                                            <small class="date">
+                                                Ultimo accesso oggi alle : {{filteredContacts[counter].messages[filteredContacts[counter].messages.length-1].date.split(" ")[1].split(":")[0]}}:{{filteredContacts[counter].messages[filteredContacts[counter].messages.length-1].date.split(" ")[1].split(":")[1]}}
                                             </small>
 
                                         </div>
@@ -258,7 +305,7 @@
 
                             <div class="chat-log ">
 
-                                <div  v-for="(singleMessage,index) in contacts[counter].messages" class="my-row"
+                                <div  v-for="(singleMessage,index) in (search=='')? contacts[counter].messages:filteredContacts[counter].messages" class="my-row"
                                     :class=" { 'sent' : singleMessage.status == 'sent', 'received' : singleMessage.status =='received' } ">
                                     
                                     <div @click.right.stop.prevent="getDataId(index)" :my-dataid="index" >
