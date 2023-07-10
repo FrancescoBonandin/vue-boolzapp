@@ -255,7 +255,7 @@ createApp({
                 }
                     
             });
-
+            this.counter = 0;
         },
 
         deleteMessage(i){
