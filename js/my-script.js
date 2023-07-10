@@ -204,27 +204,21 @@ createApp({
             return dateTime ;
         },
 
-        getResponse(){
+        //async getResponse(){
 
             
-                axios.get("https://flynn.boolean.careers/exercises/api/random/sentence")
-                .then( (res) => {
+        //        await axios.get("https://flynn.boolean.careers/exercises/api/random/sentence")
+        //         .then( (res) => {
 
-                    const result = res.data.response
-
-                    setTimeout(() => { this.contacts[this.counter].messages.push({
-                    date:this.getMyDate(),
-                    message:result,
-                    status:"received"})
+        //             const result = res.data.response;
+        //             // console.log(res,result)
                     
-                    
-                }, 1000)
-                    
-                })
+        //             return result;
+        //         })
       
 
      
-        },
+        // },
         
 
         sendNewMessage(){
@@ -237,10 +231,14 @@ createApp({
             })
 
             this.newMessage="";
-
-            this.getResponse()
             
-      
+            setTimeout(() => { this.contacts[this.counter].messages.push({
+                date:this.getMyDate(),
+                message:"OK", //this.getResponse(),
+                status:"received"})
+                
+                
+            }, 900)
         },
 
         searchInContacts(){
