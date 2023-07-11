@@ -245,19 +245,27 @@ createApp({
 
         searchInContacts(){
 
-            this.filteredContacts=this.contacts.filter(singleContact =>{
-              
-                if( singleContact.name.toUpperCase().includes(this.search.toUpperCase())){
-                return true
-                }
+            if(this.search==''){
+                this.filteredContacts=[]
+            }
 
-                else{
-                return false
-                }
-                    
-            });
+            else{
+                
+                this.filteredContacts=this.contacts.filter(singleContact =>{
+                  
+                    if( singleContact.name.toUpperCase().includes(this.search.toUpperCase())){
+                    return true
+                    }
+    
+                    else{
+                    return false
+                    }
+                        
+                });
+                
+            }
 
-            console.log(this.filteredContacts)
+            console.log(this.filteredContacts.length)
             
         },
         activateChat(index){
