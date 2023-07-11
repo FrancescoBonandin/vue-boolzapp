@@ -109,7 +109,7 @@
                                             </h3>
                                         
                                      
-                                            <small class="date">
+                                            <small v-if="contacts[activeCounter].messages.length > 0" class="date">
                                                 Ultimo accesso oggi alle : {{contacts[activeCounter].messages[contacts[activeCounter].messages.length-1].date.split(" ")[1].split(":")[0]}}:{{contacts[activeCounter].messages[contacts[activeCounter].messages.length-1].date.split(" ")[1].split(":")[1]}}
                                             </small>
 
@@ -244,9 +244,9 @@
                                                     {{singleChat.name}}
                                                 </h3>
         
-                                                <div class=" chat-last-message">
+                                                <div v-if="contacts[index].messages.length > 0" class=" chat-last-message">
                                                     
-                                                    <div>
+                                                    <div >
     
                                                         {{singleChat.messages[singleChat.messages.length-1].message}}
     
@@ -322,7 +322,7 @@
                                 <div  v-for="(singleMessage,index) in contacts[activeCounter].messages" class="my-row"
                                     :class=" { 'sent' : singleMessage.status == 'sent', 'received' : singleMessage.status =='received' } ">
                                     
-                                    <div @click.right.stop.prevent="getDataId(index)" :my-dataid="index" >
+                                    <div v-if="contacts[activeCounter].messages.length > 0" @click.right.stop.prevent="getDataId(index)" :my-dataid="index" >
               
                                         <span>
                                             {{singleMessage.message}}

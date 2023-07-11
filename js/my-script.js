@@ -257,11 +257,8 @@ createApp({
                     
             });
 
-            // if (this.filteredContacts.length == 0){
-            //     mostro un messaggio che la ricerca non ha prodotto risultati
-            // }
-
-            this.counter = 0;
+            console.log(this.filteredContacts)
+            
         },
         activateChat(index){
         //     se la ricerca è vuota cerco in Array;
@@ -286,8 +283,14 @@ createApp({
         },
 
         deleteMessage(i){
+            if(this.contacts[this.activeCounter].messages.length>0){
 
-            this.contacts[this.counter].messages.splice(i,1)
+                this.contacts[this.activeCounter].messages.splice(i,1)
+
+            }
+            else{
+                this.contacts[this.activeCounter].messages =[]
+            }
 
         },
         
