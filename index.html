@@ -220,43 +220,54 @@
                                 <!-- <ul v-if="search==''" class="chat-list flex-dir-col"> -->
 
                                 <ul  class="chat-list flex-dir-col">
+                                    <template v-if="(search != '' && filteredContacts.length==0)">
+                                        
+                                        <li>
+                                            The research produced no results,please try again.
+                                        </li>
 
+                                    </template>
                                     
-                                    <li @click="activateChat(index)" v-for="(singleChat,index) in (search=='')? contacts:filteredContacts" class=" single-chat my-row" :class="((search=='')?contacts[activeCounter] ==contacts [index]:contacts[activeCounter]==filteredContacts [index])? 'active':'' ">
-                                    <!-- <li @click="()=>{counter=index}" v-for="(singleChat,index) in contacts" class=" single-chat my-row" :class="(counter == index)? 'active':'' "> -->
+                                    <template v-else>
 
-                                        <div class="img-container">
-                                            <img class="avatar" :src="singleChat.avatar" :alt="singleChat.name">
-                                        </div>
-
-
-                                        <div class="chat-info">
-
-                                            <h3>
-                                                {{singleChat.name}}
-                                            </h3>
+                                        <li  @click="activateChat(index)" v-for="(singleChat,index) in (search=='')? contacts:filteredContacts" class=" single-chat my-row" :class="((search=='')?contacts[activeCounter] ==contacts [index]:contacts[activeCounter]==filteredContacts [index])? 'active':'' ">
+                                        <!-- <li @click="()=>{counter=index}" v-for="(singleChat,index) in contacts" class=" single-chat my-row" :class="(counter == index)? 'active':'' "> -->
     
-                                            <div class=" chat-last-message">
-                                                
-                                                <div>
-
-                                                    {{singleChat.messages[singleChat.messages.length-1].message}}
-
-                                                </div>
-                                                
-                                                <small class="date">
-                                                    {{singleChat.messages[singleChat.messages.length-1].date.split(" ")[0]}}
-                                                </small>
-        
-                                                <small class="date">
-                                                    {{singleChat.messages[singleChat.messages.length-1].date.split(" ")[1].split(":")[0]}}:{{singleChat.messages[singleChat.messages.length-1].date.split(" ")[1].split(":")[1]}}
-                                                </small>
-
+                                            <div class="img-container">
+                                                <img class="avatar" :src="singleChat.avatar" :alt="singleChat.name">
                                             </div>
+    
+    
+                                            <div class="chat-info">
+    
+                                                <h3>
+                                                    {{singleChat.name}}
+                                                </h3>
+        
+                                                <div class=" chat-last-message">
+                                                    
+                                                    <div>
+    
+                                                        {{singleChat.messages[singleChat.messages.length-1].message}}
+    
+                                                    </div>
+                                                    
+                                                    <small class="date">
+                                                        {{singleChat.messages[singleChat.messages.length-1].date.split(" ")[0]}}
+                                                    </small>
+            
+                                                    <small class="date">
+                                                        {{singleChat.messages[singleChat.messages.length-1].date.split(" ")[1].split(":")[0]}}:{{singleChat.messages[singleChat.messages.length-1].date.split(" ")[1].split(":")[1]}}
+                                                    </small>
+    
+                                                </div>
+    
+                                            </div>
+    
+                                        </li>
 
-                                        </div>
+                                    </template>
 
-                                    </li>
 
                                 </ul>
 
