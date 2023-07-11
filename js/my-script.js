@@ -14,6 +14,7 @@ createApp({
             search:"",
             newMessage:"",
             counter:0,
+            activeCounter:0,
             user:{
                 firstName:"Francesco",
                 lastName:"Bonandin",
@@ -262,6 +263,27 @@ createApp({
 
             this.counter = 0;
         },
+        activateChat(index){
+        //     se la ricerca è vuota cerco in Array;
+        //     contatore gli assegno il valore di index e poi a contatore attivo assegno il valore di contatore;
+            if(this.search==''){
+                this.counter=index
+                this.activeCounter=this.counter
+            }
+        //     oppure se ricerca non è vuota e se arrayfiltrato è piu lungo di 0 cerco in arrayfiltrato;
+        //     prendo l elemento arrayfiltrato[index] e controllo in che posizione è
+        //      dentro array prendo il suo indice e lo assegno a contatore attivo;
+            else if(this.search!='' && this.filteredContacts.length > 0){
+                this.activeCounter=this.contacts.indexOf(this.filteredContacts[index])
+                
+                // findIndex((element)=>{
+                    // element == this.filteredContacts[index]
+                    console.log(this.activeCounter)
+                // }
+                // )
+            }
+        //     se array filtrato è vuoto non faccio niente 
+        },
 
         deleteMessage(i){
 
@@ -279,14 +301,3 @@ createApp({
     }
 
 }).mount("#app")
-
-// activateChat(index){
-//     se la ricerca è vuota cerco in Array;
-//     contatore gli assegno il valore di index e poi a contatore attivo assegno il valore di contatore;
-
-//     oppure se ricerca non è vuota e se arrayfiltrato è piu lungo di 0 cerco in arrayfiltrato;
-//     prendo l elemento arrayfiltrato[index] e controllo in che posizione è
-//      dentro array prendo il suo indice e lo assegno a contatore attivo;
-
-//     se array filtrato è vuoto non faccio niente 
-// }

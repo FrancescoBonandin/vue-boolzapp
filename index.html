@@ -222,7 +222,7 @@
                                 <ul  class="chat-list flex-dir-col">
 
                                     
-                                    <li @click="()=>{counter=index}" v-for="(singleChat,index) in (search=='')? contacts:filteredContacts" class=" single-chat my-row" :class="(counter == index)? 'active':'' ">
+                                    <li @click="activateChat(index)" v-for="(singleChat,index) in (search=='')? contacts:filteredContacts" class=" single-chat my-row" :class="((search=='')?contacts[activeCounter] ==contacts [index]:contacts[activeCounter]==filteredContacts [index])? 'active':'' ">
                                     <!-- <li @click="()=>{counter=index}" v-for="(singleChat,index) in contacts" class=" single-chat my-row" :class="(counter == index)? 'active':'' "> -->
 
                                         <div class="img-container">
@@ -308,7 +308,7 @@
 
                             <div class="chat-log ">
 
-                                <div  v-for="(singleMessage,index) in (search=='')? contacts[activeCounter].messages:filteredContacts[activeCounter].messages" class="my-row"
+                                <div  v-for="(singleMessage,index) in contacts[activeCounter].messages" class="my-row"
                                     :class=" { 'sent' : singleMessage.status == 'sent', 'received' : singleMessage.status =='received' } ">
                                     
                                     <div @click.right.stop.prevent="getDataId(index)" :my-dataid="index" >
